@@ -1,0 +1,68 @@
+public class vivanew {
+    public static void main(String[] args) {
+        Array w = new Array();
+        int[] array = {64, 34, 25, 12, 22, 11, 90};
+        int[] array1 = {64, 34, 25, 12, 22, 11, 90};
+        int[] array2 = {64, 34, 25, 12, 22, 11, 90};
+        w.BS(array);
+        System.out.println();
+        w.IS(array1);
+        System.out.println();
+        w.BinarySearch(array2, 9);
+        Array n = new Array();
+        int[] Array = {45, 67, 12, 34, 89, 23, 56};
+        int[] Array1 = {45, 67, 12, 34, 89, 23, 56};
+        int[] Array2 = {45, 67, 12, 34, 89, 23, 56};
+        n.BS(Array);
+        System.out.println();
+        n.IS(Array1);
+        System.out.println();
+        n.BinarySearch(Array2,56);
+    }
+
+}
+class Array {
+    public void BS(int[] n) {
+        for (int j = 1;j < n.length;j++){
+            for (int i = 0; i < n.length - 1; i++) {
+                if (n[i] > n[i + 1]) {
+                    int tempory = n[i + 1];
+                    n[i + 1] = n[i];
+                    n[i] = tempory;
+                }
+            }
+        }
+        System.out.print("Sorted Array w Bubble Sort:");
+        for (int j = 0; j < n.length; j++) {
+            System.out.print(n[j] + " ");
+        }
+    }
+    public static void IS(int[] arr) {
+        int n = arr.length;
+        for (int i = 1; i < n; i++) {
+            int key = arr[i];
+            int j = i - 1;
+            while (j >= 0 && arr[j] > key) {
+                arr[j + 1] = arr[j];
+                j--;
+            }
+            arr[j + 1] = key;
+        }
+        System.out.print("Sorted Array w Insertion Sort:");
+        for (int j = 0; j < n; j++) {
+            System.out.print(arr[j] + " ");
+        }
+    }
+    public void BinarySearch(int[] n, int num){
+        System.out.println("Binary Search of: " + num);
+        int f = 0;
+        for (int i = 0;i <= n.length - 1;i++){
+            if (n[i] == num) {
+                System.out.println("Position of search target: " + i);
+                f = 1;
+            }
+        }
+        if (f == 0)
+            System.out.println("Position of search target: null;");
+    }
+}
